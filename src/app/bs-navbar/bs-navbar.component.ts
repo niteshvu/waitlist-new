@@ -1,6 +1,9 @@
+import { Router } from '@angular/router';
+import { RequestService } from './../request.service';
 import { AppUser } from './../models/app-user';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
+import { PrsServiceService } from '../prs-service.service';
 
 @Component({
   selector: 'bs-navbar',
@@ -9,13 +12,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BsNavbarComponent {
   appUser: AppUser;
-
-  constructor(private auth: AuthService) { 
+  requests;
+  allowMoving;
+  constructor(private auth: AuthService, private requestService: RequestService, private router: Router, private prsService: PrsServiceService) { 
     auth.appUser$.subscribe(appUser => this.appUser = appUser);
+    this.requestService.getAllRequests().subscribe(requests => this.requests = requests.length);
+    prsService.getSortable().subscribe(value => this.allowMoving = value.value)
   }
 
   logout() {
     this.auth.logout();
   }
-
+  openRequests(){
+    this.router.navigate(['/admin/requests']);
+  }
+  sortSwitch(value){
+    this.prsService.sortSwitch(value);
+  }
 }

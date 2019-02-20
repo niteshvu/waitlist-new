@@ -1,0 +1,11 @@
+.includes{
+    background-color: rgb(226, 226, 226);
+}
+.fam{
+    font-size: 22px;
+    color: rgb(56, 131, 201);
+    cursor: pointer;
+}
+.fa-trash{
+    color: rgb(214, 102, 102);
+}

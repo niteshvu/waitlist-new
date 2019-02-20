@@ -1,0 +1,16 @@
+
+<div *ngIf = "appUser" class="container">
+    <div *ngIf = "!appUser.isUser && !isRequested" class="row requestContainer">
+        <div class="requestContainer col-md-9">
+          <p class="requestHeader">Sorry! You don't have access to make changes.</p>
+        </div>
+        <button (click) = "request()" class="requestButton btn btn-xs col-md-2" type="button">Request Access</button>
+        <!-- <button type="button" class="btn btn-circle">
+            X
+        </button> -->
+      </div>
+      <br>
+      <div *ngIf = "!appUser.isUser && isRequested" class="row requestContainer green">
+        <p class=" requestHeader col-md-12">Your recent request has been submitted. Awaiting response!</p>
+      </div>
+</div>
