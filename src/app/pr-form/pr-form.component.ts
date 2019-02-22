@@ -18,7 +18,7 @@ export class PrFormComponent {
   appUser: AppUser;
   activeUsers = [];
   prs: Pr[];
-  pr = {};
+  pr;
   id;
   constructor(private prService: PrsServiceService,
               private statusService: StatusService, 

@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {TimeAgoPipe} from 'time-ago-pipe';
 import { FormsModule } from '@angular/forms';
 import { SortablejsModule } from 'angular-sortablejs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
@@ -26,6 +27,7 @@ import { PrFormComponent } from './pr-form/pr-form.component';
 import { StatusService } from './status.service';
 import { RequestComponent } from './request/request.component';
 import { RequestListComponent } from './request-list/request-list.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -39,7 +41,8 @@ import { RequestListComponent } from './request-list/request-list.component';
     TimeAgoPipe,
     PrFormComponent,
     RequestComponent,
-    RequestListComponent
+    RequestListComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { RequestListComponent } from './request-list/request-list.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     FormsModule,
+    BrowserAnimationsModule,
     NgbModule.forRoot(),
     SortablejsModule.forRoot({
       animation: 200,

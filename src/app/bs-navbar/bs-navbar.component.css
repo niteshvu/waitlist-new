@@ -44,12 +44,15 @@
   text-align: right;
 }
 .onoffswitch-switch {
-  display: block; width: 28px; height: 28px; margin: -8.5px; 
-  background: rgb(167, 167, 167);
+  display: flex; width: 32px; height: 32px; margin: -10.5px; 
+  background: rgb(129, 129, 129);
   position: absolute; top: 0; bottom: 0;
   right: 33px;
   border-radius: 20px;
   transition: all 0.3s ease-in 0s; 
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
   margin-left: 0;

@@ -9,3 +9,32 @@
 .fa-trash{
     color: rgb(214, 102, 102);
 }
+.isDisabled{
+    cursor: not-allowed;
+  }
+.isEnabled{
+    cursor: pointer;
+}
+.loadingContainer{
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.small{
+    display: none;
+} 
+
+
+@media screen and (max-width: 460px) {
+    .medium{
+        display: none;
+    }
+    .small{
+        display: flex
+    } 
+}
+.target{
+    background-color: aqua;
+}
+  

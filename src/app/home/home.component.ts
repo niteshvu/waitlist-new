@@ -1,3 +1,4 @@
+import { fade } from './../../animation';
 import { CanSort } from '../models/canSort';
 import { Observable } from 'rxjs/Observable';
 import { FirebaseObjectObservable } from 'angularfire2/database';
@@ -14,6 +15,9 @@ import { SortablejsOptions } from 'angular-sortablejs';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
+  animations: [
+    fade
+  ]
 })
 export class HomeComponent  {
   prs: Pr[] =[];
@@ -21,10 +25,14 @@ export class HomeComponent  {
   // filteredPrs: any[] = [];
   searchResults = [];
   sortable;
+  loading = true;
   constructor(private prService: PrsServiceService, private auth: AuthService) { 
     auth.appUser$.subscribe(appUser => this.appUser = appUser);
     //prsService.getAll().subscribe(pr => this.filteredPrs = this.prs = pr);  
-    prService.getAll().subscribe(pr => this.prs = pr);   
+    prService.getAll().subscribe(pr => {
+      this.prs = pr;
+      this.loading = false;
+    });   
     prService.getSortable().subscribe(value => {
       this.sortable = value.value;
       this.scrollableOptions = {
@@ -33,16 +41,19 @@ export class HomeComponent  {
       }
     })
   } 
-  
+  private onDrag(event: any) {
+    
+  }
   private onDrop(event: any) {
-   //console.log("posting");
-   this.prService.updateAfterRearrange(this.prs);
-
+    this.prService.updateAfterRearrange(this.prs);
   }
   scrollableOptions: SortablejsOptions = {
     scroll: true,
     scrollSensitivity: 50,
-    onUpdate: e => this.onDrop(e),
+    onUpdate: e => {
+      this.onDrop(e)
+      this.onDrag(e)
+    },
     handle: ".fa-arrows"
   };
   delete(prId){

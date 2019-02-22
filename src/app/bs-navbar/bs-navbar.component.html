@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" routerLink="/"></a>
+  <a class="navbar-brand" routerLink="/">Waitlist</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -25,8 +25,7 @@
       </li>
     </ul>
     <ul *ngIf="appUser" class = "request-list navbar-nav">
-        <li *ngIf="appUser.isAdmin" class="nav-item switchContainer">
-            <p>Allow Moving</p>
+        <li *ngIf="appUser.isAdmin && appUser.isUser" class="nav-item switchContainer">
             <div class="onoffswitch">
                 <input type="checkbox"
                        name="onoffswitch"
@@ -38,7 +37,7 @@
                        >
                 <label class="onoffswitch-label" for="myonoffswitch">
                     <span class="onoffswitch-inner"></span>
-                    <span class="onoffswitch-switch"></span>
+                    <span class="onoffswitch-switch"><i class="fa fa-arrows"></i></span>
                 </label>
             </div>
         </li>

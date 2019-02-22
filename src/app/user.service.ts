@@ -42,4 +42,14 @@ export class UserService {
   update(uid, object){
     return this.db.object('/users/' + uid).update(object);
   }
+  editAdmin(uid, value){
+    this.db.object('/users/' + uid).update({
+      isAdmin: value
+    })
+  }
+  editUser(uid, value){
+    this.db.object('/users/' + uid).update({
+      isUser: value
+    })
+  }
 }

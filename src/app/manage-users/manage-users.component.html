@@ -1,3 +1,46 @@
-<p>
-  manage-users works!
-</p>
+<table class="table">
+  <thead>
+      <tr>
+          <th>Name</th>
+          <th>Admin</th>
+          <th>Access</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let user of users">
+          <td>{{user.name}}</td>
+          <td>
+                <label class="switch">
+                    <input type = "checkbox" 
+                      id = "adminSwitch" 
+                      #adminSwitch = "ngModel" 
+                      [(ngModel)] = "user.isAdmin" 
+                      (change) = "editAdmin(user.$key, adminSwitch.value)"
+                    />
+                    <span class="slider round"></span>
+                </label>
+          </td>
+          <td>
+              <label class="switch">
+                  <input type = "checkbox" 
+                    id = "adminSwitch" 
+                    #userSwitch = "ngModel" 
+                    [(ngModel)] = "user.isUser" 
+                    (change) = "editUser(user.$key, userSwitch.value)"
+                  />
+                  <span class="slider round"></span>
+              </label>
+          </td>
+      </tr>
+  </tbody>
+</table>
+
+<!-- #adminonoffswitch = "ngModel"
+                        [(ngModel)] = "user.isAdmin" -->
+
+
+
+
+<!-- <spinner  [width] = "'20px'" [color] = "'blue'" [loaderHeight] = "'20px'" [border] = "'2px'" [borderTop] = "'2px'"></spinner> -->
+
+
