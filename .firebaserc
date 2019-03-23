@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "test": "waitlist-liaison",
+    "default": "waitlist-liaison"
+  }
+}

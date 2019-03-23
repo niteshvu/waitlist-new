@@ -1,0 +1,13 @@
+.sprintContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.newSprint{
+   margin: 10px;
+   cursor: pointer;
+}
+.currentSprint{
+    color: rgb(102, 102, 102);
+    margin-top: 23px;
+}

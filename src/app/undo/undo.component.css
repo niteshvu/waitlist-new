@@ -1,0 +1,11 @@
+.undoButton{
+    padding: 5px 20px;
+    cursor: pointer;
+    color: #007bff;
+    background-color:#ffffff;
+    border: 2px solid #007bff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.icon{
+    margin-left: 20px;
+}

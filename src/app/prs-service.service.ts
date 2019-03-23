@@ -25,9 +25,11 @@ export class PrsServiceService {
     //console.log(prId, pr);
     return this.db.object('/prs/' + prId).update(pr);
   }
-  delete(prId){
-    console.log(prId);
-    return this.db.object('prs/' + prId).remove();
+  async delete(prId){
+    let tempPr;
+    await this.get(prId).subscribe(pr => tempPr = pr);
+    await localStorage.setItem('deletedPr', JSON.stringify(tempPr));
+    await this.db.object('/prs/' + prId).remove();
   }
   async updateAfterRearrange(prs){
     if(prs){
@@ -50,5 +52,19 @@ export class PrsServiceService {
     return this.db.object('/sort/canSort').update({
       value: value
     })
+  }
+  async updateAfterUndo(deletedPr, prs){
+    //console.log(deletedPr);
+    if(prs){
+      prs.map(async pr => {
+        if(pr.sortId >= deletedPr.sortId){
+          await this.db.object('/prs/' + pr.$key).update({
+            sortId: pr.sortId + 1
+          })
+        }
+      });
+    }
+    await this.db.list('/prs').push(deletedPr);
+
   }
 }

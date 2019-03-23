@@ -17,6 +17,9 @@ import { FormsModule } from '@angular/forms';
 import { SortablejsModule } from 'angular-sortablejs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
+
+
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -28,6 +31,10 @@ import { StatusService } from './status.service';
 import { RequestComponent } from './request/request.component';
 import { RequestListComponent } from './request-list/request-list.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { UndoComponent } from './undo/undo.component';
+import { SprintComponent } from './sprint/sprint.component';
+import { NewSprintComponent } from './new-sprint/new-sprint.component';
+
 
 
 
@@ -42,15 +49,18 @@ import { SpinnerComponent } from './spinner/spinner.component';
     PrFormComponent,
     RequestComponent,
     RequestListComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    UndoComponent,
+    SprintComponent,
+    NewSprintComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    FormsModule,
     BrowserAnimationsModule,
+    FormsModule,
     NgbModule.forRoot(),
     SortablejsModule.forRoot({
       animation: 200,
@@ -61,10 +71,11 @@ import { SpinnerComponent } from './spinner/spinner.component';
 
       { path: 'new-pr', component: PrFormComponent, canActivate: [AuthGuard]},
       { path: 'prs/:id', component: PrFormComponent, canActivate: [AuthGuard]},
+      { path: 'new-sprint', component: NewSprintComponent, canActivate: [AuthGuard]},
 
       { path: 'admin/manage-users', component: ManageUsersComponent , canActivate: [AuthGuard, AdminAuthGuard]},
       { path: 'admin/requests', component: RequestListComponent , canActivate: [AuthGuard, AdminAuthGuard]}
-    ])    
+    ])
   ],
   providers: [
     AuthService,

@@ -13,7 +13,7 @@
 .btn{
     margin-bottom: 30px;
     cursor: pointer;
-    background-color: rgba(129, 128, 128, 0.418);
+    background-color: rgb(63, 61, 61);
     color: white;
 }
 .btn-circle {

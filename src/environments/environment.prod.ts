@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "AIzaSyBvosXE9t9l8ZSLiLtzkxO_kVVEVm7Rpf4",
-    authDomain: "waitlist-new.firebaseapp.com",
-    databaseURL: "https://waitlist-new.firebaseio.com",
-    projectId: "waitlist-new",
-    storageBucket: "waitlist-new.appspot.com",
-    messagingSenderId: "1004520545987"
+    apiKey: "AIzaSyAZGMKZhDvAHGde7mdZlgraULPg2BOACJ4",
+    authDomain: "waitlist-liaison.firebaseapp.com",
+    databaseURL: "https://waitlist-liaison.firebaseio.com",
+    projectId: "waitlist-liaison",
+    storageBucket: "waitlist-liaison.appspot.com",
+    messagingSenderId: "365511080429"
   }
 };
