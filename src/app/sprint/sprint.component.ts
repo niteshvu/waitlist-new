@@ -1,3 +1,4 @@
+import { SprintService } from './../sprint.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 
@@ -8,12 +9,14 @@ import { AuthService } from '../auth.service';
 })
 export class SprintComponent {
   appUser = {};   
-  sprintNumber = 10;
-  constructor(private auth: AuthService) { 
+  sprintNumber;
+  constructor(private auth: AuthService, private sprint: SprintService) { 
     auth.appUser$.subscribe(appUser => {
       this.appUser = appUser;
-      console.log(this.appUser);
     });
+    this.sprint.getCurrentSprint().subscribe(sprintNumber => {
+      this.sprintNumber = sprintNumber.currentSprint;
+    })
   }
 
 

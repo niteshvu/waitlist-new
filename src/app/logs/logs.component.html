@@ -1,0 +1,27 @@
+<form>
+    <div class="form-group">
+        <label for="sprintNumber">Select Sprint</label>
+        <select #sprintNumber = "ngModel" [(ngModel)] = "selectedSprint" name = "sprintNumber" id="sprintNumber" class="form-control" (ngModelChange)="selectedSprintNumber($event)" >
+          <option value=""></option>
+          <option *ngFor = "let l of logs$ | async" [value] = "l.sprintNumber">{{l.sprintNumber}}</option>
+        </select>
+    </div> 
+  </form>
+  <table class="table col-md-12 medium">
+      <thead>
+          <tr>
+            <th class='handle' *ngIf = "appUser"></th>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Link</th>
+          </tr>
+      </thead>
+      <tbody *ngIf = "sprintData">
+          <tr *ngFor = "let pr of sprintData.allPrs">
+              <td>{{pr.sortId}}</td>
+              <td>{{pr.name}}</td>
+              <td><a class="link" target="_blank" [href]="pr.link">Open in GitHub</a>  <span class="prNumber">{{pr.link.substr(pr.link.length - 4, pr.link.length)}}</span> </td>
+          </tr>
+      </tbody>
+    </table>
+    <!-- <button (click) = "openAll()" *ngIf = "sprintData.allPrs" class="btn btn-primary">Open All</button> -->

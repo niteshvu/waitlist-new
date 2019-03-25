@@ -67,4 +67,7 @@ export class PrsServiceService {
     await this.db.list('/prs').push(deletedPr);
 
   }
+  deleteAllPrs(){
+    this.db.object('/prs').remove();
+  }
 }

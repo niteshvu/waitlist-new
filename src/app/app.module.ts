@@ -1,3 +1,4 @@
+import { LogsService } from './logs.service';
 import { RequestService } from './request.service';
 import { ActiveUsersService } from './active-users.service';
 import { AdminAuthGuard } from './admin-auth-guard.service';
@@ -16,6 +17,7 @@ import {TimeAgoPipe} from 'time-ago-pipe';
 import { FormsModule } from '@angular/forms';
 import { SortablejsModule } from 'angular-sortablejs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbdDatepickerPopup } from './datepicker-popup';
 
 
 
@@ -34,6 +36,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { UndoComponent } from './undo/undo.component';
 import { SprintComponent } from './sprint/sprint.component';
 import { NewSprintComponent } from './new-sprint/new-sprint.component';
+import { SprintService } from './sprint.service';
+import { LogsComponent } from './logs/logs.component';
 
 
 
@@ -52,7 +56,9 @@ import { NewSprintComponent } from './new-sprint/new-sprint.component';
     SpinnerComponent,
     UndoComponent,
     SprintComponent,
-    NewSprintComponent
+    NewSprintComponent,
+    NgbdDatepickerPopup,
+    LogsComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +78,7 @@ import { NewSprintComponent } from './new-sprint/new-sprint.component';
       { path: 'new-pr', component: PrFormComponent, canActivate: [AuthGuard]},
       { path: 'prs/:id', component: PrFormComponent, canActivate: [AuthGuard]},
       { path: 'new-sprint', component: NewSprintComponent, canActivate: [AuthGuard]},
+      { path: 'logs', component: LogsComponent, canActivate: [AuthGuard]},
 
       { path: 'admin/manage-users', component: ManageUsersComponent , canActivate: [AuthGuard, AdminAuthGuard]},
       { path: 'admin/requests', component: RequestListComponent , canActivate: [AuthGuard, AdminAuthGuard]}
@@ -85,7 +92,9 @@ import { NewSprintComponent } from './new-sprint/new-sprint.component';
     PrsServiceService,
     StatusService, 
     ActiveUsersService,
-    RequestService
+    RequestService,
+    SprintService,
+    LogsService
   ],
   bootstrap: [AppComponent]
 })

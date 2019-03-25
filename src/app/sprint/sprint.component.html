@@ -1,4 +1,4 @@
-<div class="sprintContainer">
+<div *ngIf="appUser" class="sprintContainer">
   <h5 class="currentSprint">Current Sprint: {{sprintNumber}}</h5>
   <button *ngIf = "appUser.isAdmin" class="btn btn-primary newSprint" routerLink="/new-sprint">New Sprint</button>
 </div>

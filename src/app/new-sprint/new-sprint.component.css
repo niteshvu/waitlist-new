@@ -1,0 +1,16 @@
+.btn-primary, .fa{
+    cursor: pointer;
+}
+.fieldContainer{
+    display: flex;
+    flex-direction: row
+}
+.sprintForm{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.newSprint{
+    width: 100%;
+}

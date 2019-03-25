@@ -20,6 +20,7 @@
             <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="/admin/manage-users">Manage Users</a>
             <!-- <a *ngIf="appUser.isUser" class="dropdown-item" routerLink="/new-pr">Add New PR</a> -->
           </ng-container>
+          <a *ngIf="appUser.isUser" class="dropdown-item" routerLink="/logs">Logs</a>
           <a class="dropdown-item" (click)="logout()">Log Out</a>
         </div>
       </li>
