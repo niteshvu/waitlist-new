@@ -26,8 +26,11 @@ export class SprintComponent {
     });
     this.sprint.getCurrentSprint().subscribe(sprintInfo => {
         this.sprintInfo = sprintInfo;
-        this.sprintInfo.startDate = this.sprintInfo.startDate.split('-').join('/').substr(5);
-        this.sprintInfo.endDate = this.sprintInfo.endDate.split('-').join('/').substr(5);
+        if(this.sprintInfo.startDate){
+          this.sprintInfo.startDate = this.sprintInfo.startDate.split('-').join('/').substr(5);
+          this.sprintInfo.endDate = this.sprintInfo.endDate.split('-').join('/').substr(5);
+        }
+        
         //console.log(this.sprintInfo);
     })
   }
