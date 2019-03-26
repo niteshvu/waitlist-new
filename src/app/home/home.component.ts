@@ -38,7 +38,7 @@ export class HomeComponent{
     prService.getAll().subscribe(pr => {
       this.prs = pr;
       this.loading = false;
-    });   
+    }); 
     prService.getSortable().subscribe(value => {
       this.sortable = value.value;
       this.scrollableOptions = {

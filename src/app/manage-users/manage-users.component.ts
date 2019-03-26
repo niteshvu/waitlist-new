@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ManageUsersComponent {
   users;
   constructor(private userService: UserService) {
-    this.userService.getAllUsers().subscribe(user => {this.users = user; console.log(this.users)});
+    this.userService.getAllUsers().subscribe(user => {this.users = user;});
   }
   editAdmin(uid, value){
     return this.userService.editAdmin(uid, value);

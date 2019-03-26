@@ -42,28 +42,6 @@
   </table>
   <!--  -->
 
-  <!-- small screens -->
-  <div class="table col-md-12 small">
-    <tbody [sortablejs]="prs" [sortablejsOptions]="scrollableOptions">
-          <tr class="prCard" *ngFor = "let pr of prs" [ngClass]="{'includes': query.value ? pr.status.concat(' ', pr.name).toLowerCase().includes(query.value.toLowerCase()) : ''}"
-          >
-              <td *ngIf = "appUser"><a *ngIf = "appUser.isUser && sortable"><i class="fa fa-arrows "></i></a></td>
-              <td>{{pr.sortId}}</td>
-              <td>{{pr.name}}</td>
-              <td>{{pr.createdDate | timeAgo}}</td>
-              <td><a target="_blank" [href]="pr.link">Open in GitHub</a></td>
-              <td>{{pr.status}}</td>
-              <td *ngIf = "appUser"><a *ngIf = "appUser.isUser" [routerLink] = "['/prs/', pr.$key]" ><i class="fa fa-edit fam"></i></a></td>
-              <td *ngIf = "appUser"><a (click) = "delete(pr.$key, pr)" *ngIf = "appUser.isUser"><i class="fa fa-trash  fam"></i></a></td>
-          </tr>
-    </tbody>
-  </div>
-</ng-template>
-
-<div class="undoContainer">
-    <undo [visible] = "visible" (switch) = "undo($event)"></undo>
-</div>
-
 
 
 

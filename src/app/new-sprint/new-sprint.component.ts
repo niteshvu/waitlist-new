@@ -10,8 +10,9 @@ import { fadeInOnEnterAnimation, fadeOutOnLeaveAnimation, slideInDownAnimation }
 })
 export class NewSprintComponent {
   Sprintnumber;
+  startDate;
+  endDate;
   constructor(private router: Router, private sprint: SprintService) { 
-    //console.log(this.Sprintnumber);
   }
   getData(value){
     //console.log(value);
