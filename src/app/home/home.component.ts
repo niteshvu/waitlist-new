@@ -1,8 +1,8 @@
-import { fade } from './../../animation';
 // import { CanSort } from '../models/canSort';
 // import { Observable } from 'rxjs/Observable';
 // import { FirebaseObjectObservable } from 'angularfire2/database';
 // import { AppUser } from './../models/app-user';
+import { fadeInOnEnterAnimation, fadeOutOnLeaveAnimation, slideInDownAnimation } from 'angular-animations';
 import { AuthService } from './../auth.service';
 import { Pr } from './../models/pr';
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
@@ -16,7 +16,11 @@ import { SortablejsOptions } from 'angular-sortablejs';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   animations: [
-    fade
+    fadeInOnEnterAnimation(),
+    fadeOutOnLeaveAnimation({
+      duration: 400
+    }),
+    slideInDownAnimation()
   ]
 })
 export class HomeComponent{

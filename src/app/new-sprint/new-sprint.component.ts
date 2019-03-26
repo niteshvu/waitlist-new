@@ -1,6 +1,7 @@
 import { SprintService } from './../sprint.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { fadeInOnEnterAnimation, fadeOutOnLeaveAnimation, slideInDownAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-new-sprint',
@@ -21,6 +22,9 @@ export class NewSprintComponent {
       startDate: startDate,
       endDate: endDate
     })
+    this.router.navigate(['/']);
+  }
+  cancel(){
     this.router.navigate(['/']);
   }
 }

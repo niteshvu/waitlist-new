@@ -6,13 +6,14 @@
 <div>
     <input class="col-md-12" (keyup) = "getQuery(query.value)" #query type = "text"  class="form-control" placeholder="Search by name or status...">
 </div> 
+<br>
 <div class="row" *ngIf = "loading; else loaded">
   <div class="col-md-12 loadingContainer">
     <spinner></spinner>
   </div>
 </div>
 <ng-template #loaded>
-  <table class="table col-md-12 medium">
+  <table [@fadeInOnEnter] class="table col-md-12 medium" >
     <thead>
         <tr>
           <th class='handle' *ngIf = "appUser"></th>
@@ -25,7 +26,7 @@
             <th *ngIf = "appUser"></th>
         </tr>
     </thead>
-    <tbody @fade [sortablejs]="prs" [sortablejsOptions]="scrollableOptions">
+    <tbody  [sortablejs]="prs" [sortablejsOptions]="scrollableOptions">
         <tr *ngFor = "let pr of prs" [ngClass]="{'includes': queryValue ? pr.status.concat(' ', pr.name).toLowerCase().includes(queryValue) : ''}"
         >
             <td *ngIf = "appUser"><a *ngIf = "appUser.isUser && sortable"><i class="fa fa-arrows isEnabled "></i></a></td>

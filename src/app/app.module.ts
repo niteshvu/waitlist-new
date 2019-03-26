@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LogsService } from './logs.service';
 import { RequestService } from './request.service';
 import { ActiveUsersService } from './active-users.service';
@@ -16,7 +17,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {TimeAgoPipe} from 'time-ago-pipe';
 import { FormsModule } from '@angular/forms';
 import { SortablejsModule } from 'angular-sortablejs';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbdDatepickerPopup } from './datepicker-popup';
 
 
@@ -38,6 +38,7 @@ import { SprintComponent } from './sprint/sprint.component';
 import { NewSprintComponent } from './new-sprint/new-sprint.component';
 import { SprintService } from './sprint.service';
 import { LogsComponent } from './logs/logs.component';
+import { HeadingComponent } from './heading/heading.component';
 
 
 
@@ -58,19 +59,20 @@ import { LogsComponent } from './logs/logs.component';
     SprintComponent,
     NewSprintComponent,
     NgbdDatepickerPopup,
-    LogsComponent
+    LogsComponent,
+    HeadingComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    BrowserAnimationsModule,
     FormsModule,
     NgbModule.forRoot(),
     SortablejsModule.forRoot({
       animation: 200,
     }),
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },

@@ -1,12 +1,20 @@
 import { SprintService } from './../sprint.service';
 import { LogsService } from './../logs.service';
 import { Component, OnInit } from '@angular/core';
+import { slideInDownAnimation, fadeOutOnLeaveAnimation, fadeInOnEnterAnimation } from 'angular-animations';
 
 
 @Component({
   selector: 'app-logs',
   templateUrl: './logs.component.html',
-  styleUrls: ['./logs.component.css']
+  styleUrls: ['./logs.component.css'],
+  animations: [
+    fadeInOnEnterAnimation(),
+    fadeOutOnLeaveAnimation({
+      duration: 400
+    }),
+    slideInDownAnimation()
+  ]
 })
 export class LogsComponent {
   logs$;

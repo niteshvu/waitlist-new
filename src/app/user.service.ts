@@ -9,7 +9,11 @@ export class UserService {
   constructor(private db: AngularFireDatabase) { }
 
   getAllUsers(){
-    return this.db.list('/users');
+    return this.db.list('/users', {
+      query:{
+        orderByChild: "name"
+      }
+    });
   }
 
   save(user: firebase.User) {

@@ -7,11 +7,21 @@ import { Component, OnInit } from '@angular/core';
 import { AppUser } from '../models/app-user';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/take';
+import { slideInDownAnimation, fadeInOnEnterAnimation, fadeOutOnLeaveAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-pr-form',
   templateUrl: './pr-form.component.html',
-  styleUrls: ['./pr-form.component.css']
+  styleUrls: ['./pr-form.component.css'],
+  animations: [
+    fadeInOnEnterAnimation({
+      duration: 500
+    }),
+    fadeOutOnLeaveAnimation({
+      duration: 400
+    }),
+    slideInDownAnimation()
+  ]
 })
 export class PrFormComponent {
   statuses$;
@@ -52,9 +62,7 @@ export class PrFormComponent {
     this.router.navigate(['/']);
   }
 
-  delete(){
-    this.prService.delete(this.id);
+  cancel(){
     this.router.navigate(['/']);
-    this.prService.updateAfterRearrange(this.prs);
   }
 }

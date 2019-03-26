@@ -1,5 +1,6 @@
 <div *ngIf="appUser" class="sprintContainer">
-  <h5 class="currentSprint">Current Sprint: {{sprintNumber}}</h5>
+  <h5  class="currentSprint">Current Sprint: {{sprintInfo.currentSprint}}&nbsp;
+      <span *ngIf = "sprintInfo.currentSprint">({{sprintInfo.startDate}} - {{sprintInfo.endDate}})</span></h5>
   <button *ngIf = "appUser.isAdmin" class="btn btn-primary newSprint" routerLink="/new-sprint">New Sprint</button>
 </div>
 

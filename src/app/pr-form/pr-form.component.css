@@ -1,3 +1,7 @@
 .btn{
     cursor: pointer;
 }
+.cancel{
+    color: white;
+    background-color: rgb(97, 96, 96);
+}
