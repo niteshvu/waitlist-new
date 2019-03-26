@@ -19,7 +19,7 @@ export class LogsComponent {
     this.selectedSprint = value;
     this.sprint.getSprintData(value).subscribe(data => {
       this.sprintData = data;
-      console.log(this.sprintData);
+     // console.log(this.sprintData);
     })
   }
   // openAll(){

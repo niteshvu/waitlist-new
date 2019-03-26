@@ -3,7 +3,7 @@
         <label for="sprintNumber">Select Sprint</label>
         <select #sprintNumber = "ngModel" [(ngModel)] = "selectedSprint" name = "sprintNumber" id="sprintNumber" class="form-control" (ngModelChange)="selectedSprintNumber($event)" >
           <option value=""></option>
-          <option *ngFor = "let l of logs$ | async" [value] = "l.sprintNumber">{{l.sprintNumber}}</option>
+          <option *ngFor = "let l of logs$ | async" [value] = "l.currentSprint">{{l.currentSprint}}</option>
         </select>
     </div> 
   </form>
@@ -17,7 +17,7 @@
           </tr>
       </thead>
       <tbody *ngIf = "sprintData">
-          <tr *ngFor = "let pr of sprintData.allPrs">
+          <tr *ngFor = "let pr of sprintData.prs">
               <td>{{pr.sortId}}</td>
               <td>{{pr.name}}</td>
               <td><a class="link" target="_blank" [href]="pr.link">Open in GitHub</a>  <span class="prNumber">{{pr.link.substr(pr.link.length - 4, pr.link.length)}}</span> </td>

@@ -15,7 +15,7 @@ export class SprintComponent {
       this.appUser = appUser;
     });
     this.sprint.getCurrentSprint().subscribe(sprintNumber => {
-      this.sprintNumber = sprintNumber.currentSprint;
+        this.sprintNumber = sprintNumber.currentSprint;
     })
   }
 

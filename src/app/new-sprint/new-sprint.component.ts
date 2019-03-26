@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
 export class NewSprintComponent {
   Sprintnumber;
   constructor(private router: Router, private sprint: SprintService) { 
-    console.log(this.Sprintnumber);
+    //console.log(this.Sprintnumber);
   }
   getData(value){
-    console.log(value);
+    //console.log(value);
     let startDate = `${value.startDate.year}-${value.startDate.month}-${value.startDate.day}`
-    let endDate = `${value.startDate.year}-${value.startDate.month}-${value.startDate.day}`
+    let endDate = `${value.startDate.year}-${value.startDate.month}-${value.endDate.day}`
     this.sprint.postCurrentSprint({
       currentSprint: value.sprintNumber,
       startDate: startDate,

@@ -5,32 +5,32 @@ import { PrsServiceService } from './prs-service.service';
 
 @Injectable()
 export class SprintService {
-  currentSprint;
+  previousSprint;
   prs;
-  constructor(private db: AngularFireDatabase, private auth: AuthService, private prService: PrsServiceService) { }
-
+  constructor(private db: AngularFireDatabase, private auth: AuthService, private prService: PrsServiceService) {
+    this.prService.getAll().subscribe(prs => {
+      this.prs = prs
+    })
+  }
   getCurrentSprint(){
     return this.db.object('/sprint');
   }
   async postCurrentSprint(currentSprint){
-    await this.saveSprintData();
-    await this.db.object('/sprint').update(currentSprint);
-    await this.prService.deleteAllPrs();
+    this.getCurrentSprint().subscribe(async sprintInfo => {
+      if(sprintInfo.currentSprint){
+         await this.db.object('/logs/' + sprintInfo.currentSprint).update({
+           ...sprintInfo,
+           prs: this.prs
+         })
+         await this.db.object('/sprint').update(currentSprint);
+         await this.db.object('/prs').remove();
+      }
+      else{
+        this.db.object('/sprint').update(currentSprint)
+      }
+    }).unsubscribe();
   }
-  async saveSprintData(){
-    await this.getCurrentSprint().subscribe(sprint => this.currentSprint = sprint);
-    await this.prService.getAll().subscribe(prs => {
-      this.prs = prs
-      this.db.object('/logs/' + this.currentSprint.currentSprint).update({
-        sprintNumber: this.currentSprint.currentSprint,
-        startDate: this.currentSprint.startDate,
-        endDate: this.currentSprint.endDate,
-        allPrs: {
-          ...this.prs
-        }
-      });
-    })
-  }
+  
   getSprintData(sprintNumber){
     return this.db.object('/logs/' + sprintNumber);
   }
