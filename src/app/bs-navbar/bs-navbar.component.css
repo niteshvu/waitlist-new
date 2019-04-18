@@ -9,8 +9,6 @@
   margin-left: 15px;
 }
 
-
-
 .onoffswitch {
   position: relative; width: 48px;
   -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
@@ -68,3 +66,16 @@
   color: rgb(160, 160, 160);
   margin: 6px 0px 0px 0px;
 }
+
+@media only screen and (max-width: 600px) {
+  .request-list{
+    float: left;
+  }
+  .request-list > li{
+    margin: 10px;
+  }
+  .badgeButton{
+    margin-left: 0px;
+  }
+}
+

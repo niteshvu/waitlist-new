@@ -1,6 +1,6 @@
-<div class="alert alert-danger small">
+<!-- <div class="alert alert-danger small">
   <p>Waitlist for mobile is in development.<br>All the features may not be available.</p>
-</div>
+</div> -->
 <request></request>
 <sprint></sprint>
 <div>
@@ -12,8 +12,11 @@
     <spinner></spinner>
   </div>
 </div>
+<div *ngIf = "prs.length == 0 && !loading" class="loadingContainer">
+  <p>No PRs to display from the current sprint.<span *ngIf = "appUser && appUser.isUser"> You can add one <a [routerLink] = "['/new-pr']">here</a></span> </p>
+</div>
 <ng-template #loaded>
-  <table [@fadeInOnEnter] class="table col-md-12 medium" >
+  <table [@fadeInOnEnter] class="table col-md-12">
     <thead>
         <tr>
           <th class='handle' *ngIf = "appUser"></th>
@@ -41,6 +44,9 @@
     </tbody>
   </table>
   <!--  -->
+  <div class="undoContainer">
+      <undo [visible] = "visible" (switch) = "undo($event)"></undo>
+  </div>
 
 
 

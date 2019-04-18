@@ -14,6 +14,7 @@ export class BsNavbarComponent {
   appUser: AppUser;
   requests;
   allowMoving;
+  isCollapsed = true;
   constructor(private auth: AuthService, private requestService: RequestService, private router: Router, private prsService: PrsServiceService) { 
     auth.appUser$.subscribe(appUser => this.appUser = appUser);
     this.requestService.getAllRequests().subscribe(requests => this.requests = requests.length);

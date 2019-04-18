@@ -1,14 +1,14 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" routerLink="/">Waitlist</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+  <a (click)="isCollapsed = !isCollapsed" class="navbar-brand" routerLink="/">Waitlist</a>
+  <button class="navbar-toggler btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"  aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarsExampleDefault">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav mr-auto">
       <ng-template #anonymousUser>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/login">Login</a>
+          <a (click)="isCollapsed = !isCollapsed" class="nav-link" routerLink="/login">Login</a>
         </li>
       </ng-template>
       <li ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
@@ -17,11 +17,11 @@
         </a>
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
           <ng-container>
-            <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="/admin/manage-users">Manage Users</a>
+            <a (click)="isCollapsed = !isCollapsed" *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="/admin/manage-users">Manage Users</a>
             <!-- <a *ngIf="appUser.isUser" class="dropdown-item" routerLink="/new-pr">Add New PR</a> -->
           </ng-container>
-          <a *ngIf="appUser.isUser" class="dropdown-item" routerLink="/logs">Sprint Logs</a>
-          <a class="dropdown-item" (click)="logout()">Log Out</a>
+          <a (click)="isCollapsed = !isCollapsed" *ngIf="appUser.isUser" class="dropdown-item" routerLink="/logs">Sprint Logs</a>
+          <a (click)="isCollapsed = !isCollapsed" class="dropdown-item" (click)="logout()">Log Out</a>
         </div>
       </li>
     </ul>
@@ -43,12 +43,12 @@
             </div>
         </li>
         <li *ngIf="appUser.isUser" class="nav-item">
-            <a routerLink="/new-pr" class="btn btn-primary btn-md">
+            <a (click)="isCollapsed = !isCollapsed" routerLink="/new-pr" class="btn btn-primary btn-md">
               <span class="glyphicon glyphicon-plus-sign">Add New PR</span>
             </a>
         </li>
         <li class="nav-item">
-            <button (click) = "openRequests()" *ngIf="appUser.isAdmin" type="button" class="btn btn-primary badgeButton">
+            <button (click)="isCollapsed = !isCollapsed" (click) = "openRequests()" *ngIf="appUser.isAdmin" type="button" class="btn btn-primary badgeButton">
                 Access Requests <span class="badge badge-light">{{requests}}</span>
             </button>
         </li>
