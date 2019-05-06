@@ -23,9 +23,9 @@ export class NewSprintComponent {
       startDate: startDate,
       endDate: endDate
     })
-    this.router.navigate(['/']);
+    this.router.navigate(['/waitlist']);
   }
   cancel(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/waitlist']);
   }
 }

@@ -1,0 +1,73 @@
+.timeline-container{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+  }
+  .track-contianer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .track{
+    width: 5px;
+    height: 100%;
+    background-color: #888;
+    margin-left: -15px;
+  }
+  .timeline-item-container{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    margin-left: -25px;
+  }
+  .timeline-item{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    height: 70px;
+  }
+  .content-container{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+  }
+  .dot-container{
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+  .dot{
+    width: 35px;
+    height: 35px;
+    background-color: rgb(8, 135, 194);
+    border-radius: 50%;
+    z-index: 2;
+  }
+  .marginer{
+    width: 20px;
+    height: 100%;
+  }
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(221, 221, 221);
+    margin-left: -15px;
+    padding: 20px;
+  }
+  .content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .last-timeline-item{
+    margin-bottom: 0px;
+  }

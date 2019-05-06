@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 // import { CanSort } from '../models/canSort';
 // import { Observable } from 'rxjs/Observable';
 // import { FirebaseObjectObservable } from 'angularfire2/database';
@@ -9,6 +10,8 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 import { PrsServiceService } from '../prs-service.service';
 // import 'rxjs/add/operator/take';
 import { SortablejsOptions } from 'angular-sortablejs';
+import { Routes } from '@angular/router';
+import { BsNavbarComponent } from '../bs-navbar/bs-navbar.component';
 
 
 @Component({
@@ -24,6 +27,9 @@ import { SortablejsOptions } from 'angular-sortablejs';
   ]
 })
 export class HomeComponent{
+ routes: Routes  = [
+    {path : 'waitlist', component : BsNavbarComponent, pathMatch : 'prefix', data : {isWaitlist : true}}
+ ];
   prs: Pr[] =[];
   appUser = {};   
   // filteredPrs: any[] = [];
@@ -32,7 +38,7 @@ export class HomeComponent{
   loading = true;
   queryValue;
   visible = false; //boolean for undo button in undo component
-  constructor(private prService: PrsServiceService, private auth: AuthService) { 
+  constructor(private prService: PrsServiceService, private auth: AuthService, private route: ActivatedRoute) { 
     auth.appUser$.subscribe(appUser => this.appUser = appUser);
     //prsService.getAll().subscribe(pr => this.filteredPrs = this.prs = pr);  
     prService.getAll().subscribe(pr => {

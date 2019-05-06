@@ -59,10 +59,10 @@ export class PrFormComponent {
     //console.log(newFormData);
     if(this.id) this.prService.update(this.id, formData);
     else this.prService.create(newFormData);
-    this.router.navigate(['/']);
+    this.router.navigate(['/waitlist']);
   }
 
   cancel(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/waitlist']);
   }
 }

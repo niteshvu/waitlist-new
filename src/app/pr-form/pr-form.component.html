@@ -1,36 +1,79 @@
-<heading heading = "New Pullrequest"></heading>
-<form [@fadeInOnEnter] #f = "ngForm" (ngSubmit) = save(f.value)>
-  <div class="form-group">
-    <label for="name">Name</label>
-    <select #name = "ngModel" [(ngModel)] = "pr.name" name = "name" id="name" class="form-control" required>
-      <option value=""></option>
-        <option *ngFor = "let a of activeUsers" [value] = "a.name">{{a.name}}</option>
-    </select>
-    <div class="alert alert-danger" *ngIf = "name.touched && name.invalid">
-        Name is required
-    </div>
-  </div>
-  
-  <div class="form-group">
-      <label for="status">Status</label>
-      <select #status = "ngModel" [(ngModel)] = "pr.status" name = "status" id="status" class="form-control" required>
-        <option value=""></option>
-        <option *ngFor = "let s of statuses$ | async" [value] = "s.name">{{s.name}}</option>
-      </select>
-      <div class="alert alert-danger" *ngIf = "status.touched && status.invalid">
-          Status is required
+<div class="container">
+    <heading heading = "New Pullrequest"></heading>
+    <form [@fadeInOnEnter] #f = "ngForm" (ngSubmit) = save(f.value)>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <select #name = "ngModel" [(ngModel)] = "pr.name" name = "name" id="name" class="form-control" required>
+          <option value=""></option>
+            <option *ngFor = "let a of activeUsers" [value] = "a.name">{{a.name}}</option>
+        </select>
+        <div class="alert alert-danger" *ngIf = "name.touched && name.invalid">
+            Name is required
+        </div>
       </div>
-  </div>
-  
-  <div class="form-group">
-      <label for="link">GitHub URL</label>
-      <input #link = "ngModel" [(ngModel)] = "pr.link" name = "link" id="link" class="form-control" type="text" required>
-      <div class="alert alert-danger" *ngIf = "link.touched && link.invalid">
-          Link for PR is required
+      
+      <div class="form-group">
+          <label for="status">Status</label>
+          <select #status = "ngModel" [(ngModel)] = "pr.status" name = "status" id="status" class="form-control" required>
+            <option value=""></option>
+            <option *ngFor = "let s of statuses$ | async" [value] = "s.name">{{s.name}}</option>
+          </select>
+          <div class="alert alert-danger" *ngIf = "status.touched && status.invalid">
+              Status is required
+          </div>
       </div>
-  </div>
-  
-  <button  [disabled] = "f.invalid" class="btn btn-primary">Save</button>
-  <button  (click) = "cancel()" type="button" class="btn cancel">Cancel</button>
-  
-</form>
+      
+      <div class="form-group">
+          <label for="link">GitHub URL</label>
+          <input #link = "ngModel" [(ngModel)] = "pr.link" name = "link" id="link" class="form-control" type="text" required>
+          <div class="alert alert-danger" *ngIf = "link.touched && link.invalid">
+              Link for PR is required
+          </div>
+      </div>
+      
+      <button  [disabled] = "f.invalid" class="btn btn-primary">Save</button>
+      <button  (click) = "cancel()" type="button" class="btn cancel">Cancel</button>
+      
+    </form>
+    
+    
+    <ul class="progress-tracker--vertical">
+      <li class="progress-step is-complete is-complete-width">
+        <span class="progress-marker"></span>
+      </li>
+      <li class="progress-step is-complete is-complete-width">
+        <span class="progress-marker"></span>
+      </li>
+      <li class="progress-step is-complete is-complete-width">
+        <span class="progress-marker"></span>
+      </li>
+      <li class="progress-step is-complete is-complete-width">
+        <span class="progress-marker"></span>
+      </li>
+      <li class="progress-step is-complete is-complete-width">
+        <span class="progress-marker"></span>
+      </li>
+      <li class="progress-step is-active">
+        <span class="progress-marker"></span>
+      </li>
+      <li class="progress-step">
+        <span class="progress-marker"></span>
+      </li>
+      <li class="progress-step ">
+        <span class="progress-marker"></span>
+      </li>
+      <li class="progress-step">
+        <span class="progress-marker"></span>
+      </li>
+      <li class="progress-step">
+        <span class="progress-marker"></span>
+      </li>
+      <li class="progress-step">
+        <span class="progress-marker"></span>
+      </li>
+      <li class="progress-step">
+        <span class="progress-marker"></span>
+      </li>
+    </ul>
+</div>
+

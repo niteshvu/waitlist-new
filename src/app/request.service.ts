@@ -30,4 +30,22 @@ export class RequestService {
   remove(uId){
     return this.db.object('/requests/' + uId).remove();
   }
+  //release tracker methods
+  rtRequest(appUser){
+    return this.db.object('/rt-requests/' + appUser.$key).update({
+      uId : appUser.$key,
+      name: appUser.name,
+      email: appUser.email,
+      photoUrl: appUser.photoUrl
+    })
+  }
+  isCurrentUserInRtRequestedUsers(appUser){
+    return this.db.list('/rt-requests/' + appUser.$key);
+  }
+  getAllRtRequests(){
+    return this.db.list('/rt-requests');
+  }
+  removeRt(uId){
+    return this.db.object('/rt-requests/' + uId).remove();
+  }
 }

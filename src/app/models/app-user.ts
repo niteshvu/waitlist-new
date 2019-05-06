@@ -6,4 +6,6 @@ export interface AppUser {
   isUser: boolean;
   $key: string;
   photoUrl: string;
+  rtUser: boolean;
+  rtAdmin: boolean;
 }

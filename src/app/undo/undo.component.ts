@@ -8,7 +8,6 @@ export class UndoComponent {
   @Input() visible: boolean;
   @Output() switch: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor() { }
-
   clicked(){
     this.switch.emit(!this.visible);
   }

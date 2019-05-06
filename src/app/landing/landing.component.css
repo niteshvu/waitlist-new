@@ -1,0 +1,57 @@
+.headingContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10% 0px 30px 0px;
+}
+.waitlistContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.releaseTrackerContainer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.text-container{
+    position: relative;
+    display: flex;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background-color:  #343a40;
+    color: white;
+    cursor: pointer;
+}
+.text-container:hover{
+    background-color: #007bff;
+    color: white;
+    animation-name: zoomin;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    box-shadow: 1px 5px 28px #8888886c;
+}
+@keyframes zoomin {
+    from {width: 200px;
+        height: 200px;}
+    to {width: 220px;
+        height: 220px;}
+}
+
+@media screen and (max-width: 560px) {
+    .waitlistContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+    }
+    .releaseTrackerContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+    }
+}

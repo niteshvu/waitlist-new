@@ -39,9 +39,13 @@ import { NewSprintComponent } from './new-sprint/new-sprint.component';
 import { SprintService } from './sprint.service';
 import { LogsComponent } from './logs/logs.component';
 import { HeadingComponent } from './heading/heading.component';
-
-
-
+import { RtHomeComponent } from './rt-home/rt-home.component';
+import { LandingComponent } from './landing/landing.component';
+import { RtRequestComponent } from './rt-request/rt-request.component';
+import { RtRequestListComponent } from './rt-request-list/rt-request-list.component';
+import { RtAdminAuthGuardService } from './rt-admin-auth-guard.service';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +64,13 @@ import { HeadingComponent } from './heading/heading.component';
     NewSprintComponent,
     NgbdDatepickerPopup,
     LogsComponent,
-    HeadingComponent
+    HeadingComponent,
+    RtHomeComponent,
+    LandingComponent,
+    RtRequestComponent,
+    RtRequestListComponent,
+    SidebarComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,
@@ -74,16 +84,19 @@ import { HeadingComponent } from './heading/heading.component';
     }),
     BrowserAnimationsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: LandingComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'waitlist', component: HomeComponent},
+      { path: 'release-tracker', component: RtHomeComponent},
 
-      { path: 'new-pr', component: PrFormComponent, canActivate: [AuthGuard]},
-      { path: 'prs/:id', component: PrFormComponent, canActivate: [AuthGuard]},
-      { path: 'new-sprint', component: NewSprintComponent, canActivate: [AuthGuard]},
-      { path: 'logs', component: LogsComponent, canActivate: [AuthGuard]},
+      { path: 'waitlist/new-pr', component: PrFormComponent, canActivate: [AuthGuard]},
+      { path: 'waitlist/prs/:id', component: PrFormComponent, canActivate: [AuthGuard]},
+      { path: 'waitlist/new-sprint', component: NewSprintComponent, canActivate: [AuthGuard]},
+      { path: 'waitlist/logs', component: LogsComponent, canActivate: [AuthGuard]},
 
-      { path: 'admin/manage-users', component: ManageUsersComponent , canActivate: [AuthGuard, AdminAuthGuard]},
-      { path: 'admin/requests', component: RequestListComponent , canActivate: [AuthGuard, AdminAuthGuard]}
+      { path: 'waitlist/admin/manage-users', component: ManageUsersComponent , canActivate: [AuthGuard, AdminAuthGuard]},
+      { path: 'waitlist/admin/requests', component: RequestListComponent , canActivate: [AuthGuard, AdminAuthGuard]},
+      { path: 'release-tracker/admin/requests', component: RtRequestListComponent , canActivate: [AuthGuard, AdminAuthGuard, RtAdminAuthGuardService]}
     ])
   ],
   providers: [
@@ -96,7 +109,8 @@ import { HeadingComponent } from './heading/heading.component';
     ActiveUsersService,
     RequestService,
     SprintService,
-    LogsService
+    LogsService,
+    RtAdminAuthGuardService
   ],
   bootstrap: [AppComponent]
 })

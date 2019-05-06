@@ -78,4 +78,10 @@
     margin-left: 0px;
   }
 }
+.navbar-brand > span > p{
+  margin-bottom: 0rem !important;
+}
+.appName{
+  font-size: 14px;
+}
 

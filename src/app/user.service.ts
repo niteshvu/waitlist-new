@@ -33,7 +33,9 @@ export class UserService {
           email: user.email,
           isAdmin: false,
           isUser: false,
-          photoUrl: user.photoURL
+          photoUrl: user.photoURL,
+          rtUser: false,
+          rtAdmin: false
         });
       }
     });

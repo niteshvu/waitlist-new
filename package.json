@@ -31,6 +31,7 @@
     "firebase": "^4.2.0",
     "font-awesome": "^4.7.0",
     "moment": "^2.24.0",
+    "progress-tracker": "^1.4.0",
     "rxjs": "^5.4.1",
     "sortablejs": "^1.8.3",
     "table-dragger": "^1.0.2",
